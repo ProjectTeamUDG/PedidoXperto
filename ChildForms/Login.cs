@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DocumentFormat.OpenXml.Math;
+using DocumentFormat.OpenXml.Spreadsheet;
 using LiteDB;
 using Microsoft.VisualBasic.ApplicationServices;
 using Org.BouncyCastle.Crypto.Generators;
@@ -120,13 +121,13 @@ namespace PedidoXperto.ChildForms
         private void ForgetPw_MouseEnter(object sender, EventArgs e)
         {
             ForgetPw.ForeColor = System.Drawing.Color.SteelBlue;
-            ForgetPw.Font = new Font(ForgetPw.Font, FontStyle.Underline);
+            ForgetPw.Font = new System.Drawing.Font(ForgetPw.Font, FontStyle.Underline);
         }
 
         private void ForgetPw_MouseLeave(object sender, EventArgs e)
         {
             ForgetPw.ForeColor = System.Drawing.Color.White;
-            ForgetPw.Font = new Font(ForgetPw.Font, FontStyle.Regular);
+            ForgetPw.Font = new System.Drawing.Font(ForgetPw.Font, FontStyle.Regular);
         }
 
         private void Enter_Click(object sender, EventArgs e)
@@ -145,25 +146,42 @@ namespace PedidoXperto.ChildForms
 
                     // Buscar el usuario que coincida con el nombre de usuario ingresado
                     var usuario = usuarios.FindOne(x => x.UsuarioName == Txt_Usuario.Text);
+                    var roles = db.GetCollection<AdminRoles>("ROLES");
 
                     if (usuario != null)
                     {
                         // Comprobar si la contraseña ingresada coincide con el hash almacenado
                         bool isMatch = BCrypt.Net.BCrypt.Verify(TxtPw.Text, usuario.Password);
-
-                        if (isMatch && usuario.Rol == "Administrador")
+                        
+                        if (isMatch)
                         {
+                            var rolActual = roles.FindOne(r => r.RolNombre == usuario.Rol);
                             this.Hide();
-                            db.Dispose();
                             MainForm Main = new MainForm();
-                            Main.LbUsuario.Text = "Bienvenido " + usuario.UsuarioName;
-                            Main.ShowDialog();
-                        }
-                        else if (isMatch && usuario.Rol != "Administrador")
-                        {
-                            this.Close();
+                            Main.BtnValidarPedido.Enabled = false;
+                            Main.BtnNuevoPedido.Enabled = false;
+                            Main.BtnUsuarios.Enabled = false;
+                            Main.BtnRoles.Enabled = false;
+                            foreach (var derecho in rolActual.Derechos)
+                            {
+                                if (derecho == "Validar Pedido" || derecho == "All")
+                                {
+                                    Main.BtnValidarPedido.Enabled = true;
+                                }
+                                if (derecho == "Crear Pedido" || derecho == "All")
+                                {
+                                    Main.BtnNuevoPedido.Enabled = true;
+                                }
+                                if (derecho == "Administrador de Usuarios" || derecho == "All")
+                                {
+                                    Main.BtnUsuarios.Enabled = true;
+                                }
+                                if (derecho == "Administrador de Roles" || derecho == "All")
+                                {
+                                    Main.BtnRoles.Enabled = true;
+                                }
+                            }
                             db.Dispose();
-                            MainForm Main = new MainForm();
                             Main.LbUsuario.Text = "Bienvenido " + usuario.UsuarioName;
                             Main.ShowDialog();
                         }

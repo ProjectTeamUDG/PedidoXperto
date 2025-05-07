@@ -31,13 +31,13 @@ namespace ProyectoXperto
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             Toppanel = new Panel();
             LogOut = new Label();
             LbUsuario = new Label();
             label1 = new Label();
             Leftpanel = new Panel();
             SubPanelMenuAdmin = new Panel();
+            BtnRoles = new Button();
             BtnUsuarios = new Button();
             BtnAdministrador = new Button();
             Hide = new Button();
@@ -49,7 +49,6 @@ namespace ProyectoXperto
             collapseTimer = new System.Windows.Forms.Timer(components);
             CompletePanel = new Panel();
             Primarypanel = new Panel();
-            button1 = new Button();
             Toppanel.SuspendLayout();
             Leftpanel.SuspendLayout();
             SubPanelMenuAdmin.SuspendLayout();
@@ -68,7 +67,7 @@ namespace ProyectoXperto
             Toppanel.Dock = DockStyle.Top;
             Toppanel.Location = new Point(0, 0);
             Toppanel.Name = "Toppanel";
-            Toppanel.Size = new Size(1110, 58);
+            Toppanel.Size = new Size(1344, 58);
             Toppanel.TabIndex = 0;
             // 
             // LogOut
@@ -78,7 +77,7 @@ namespace ProyectoXperto
             LogOut.Cursor = Cursors.Hand;
             LogOut.Font = new Font("Century Gothic", 12F, FontStyle.Underline, GraphicsUnit.Point, 0);
             LogOut.ForeColor = SystemColors.Control;
-            LogOut.Location = new Point(991, 7);
+            LogOut.Location = new Point(1225, 7);
             LogOut.Name = "LogOut";
             LogOut.Size = new Size(110, 21);
             LogOut.TabIndex = 2;
@@ -92,7 +91,7 @@ namespace ProyectoXperto
             LbUsuario.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             LbUsuario.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             LbUsuario.ForeColor = SystemColors.Control;
-            LbUsuario.Location = new Point(751, 32);
+            LbUsuario.Location = new Point(985, 32);
             LbUsuario.Name = "LbUsuario";
             LbUsuario.Size = new Size(349, 23);
             LbUsuario.TabIndex = 1;
@@ -104,7 +103,7 @@ namespace ProyectoXperto
             label1.AutoSize = true;
             label1.Font = new Font("Century Gothic", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(489, 3);
+            label1.Location = new Point(606, 3);
             label1.Name = "label1";
             label1.Size = new Size(170, 28);
             label1.TabIndex = 0;
@@ -121,20 +120,38 @@ namespace ProyectoXperto
             Leftpanel.Dock = DockStyle.Left;
             Leftpanel.Location = new Point(0, 0);
             Leftpanel.Name = "Leftpanel";
-            Leftpanel.Size = new Size(240, 729);
+            Leftpanel.Size = new Size(240, 861);
             Leftpanel.TabIndex = 1;
             Leftpanel.MouseEnter += Leftpanel_MouseEnter;
             Leftpanel.MouseLeave += Leftpanel_MouseLeave;
             // 
             // SubPanelMenuAdmin
             // 
-            SubPanelMenuAdmin.Controls.Add(button1);
+            SubPanelMenuAdmin.Controls.Add(BtnRoles);
             SubPanelMenuAdmin.Controls.Add(BtnUsuarios);
             SubPanelMenuAdmin.Dock = DockStyle.Top;
             SubPanelMenuAdmin.Location = new Point(0, 229);
             SubPanelMenuAdmin.Name = "SubPanelMenuAdmin";
             SubPanelMenuAdmin.Size = new Size(240, 118);
             SubPanelMenuAdmin.TabIndex = 4;
+            // 
+            // BtnRoles
+            // 
+            BtnRoles.BackColor = Color.Silver;
+            BtnRoles.Cursor = Cursors.Hand;
+            BtnRoles.Dock = DockStyle.Top;
+            BtnRoles.FlatAppearance.BorderSize = 0;
+            BtnRoles.FlatAppearance.MouseOverBackColor = Color.Gray;
+            BtnRoles.FlatStyle = FlatStyle.Flat;
+            BtnRoles.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            BtnRoles.ForeColor = Color.Black;
+            BtnRoles.Location = new Point(0, 58);
+            BtnRoles.Name = "BtnRoles";
+            BtnRoles.Size = new Size(240, 58);
+            BtnRoles.TabIndex = 2;
+            BtnRoles.Text = "Roles";
+            BtnRoles.UseVisualStyleBackColor = false;
+            BtnRoles.Click += BtnRoles_Click;
             // 
             // BtnUsuarios
             // 
@@ -184,7 +201,7 @@ namespace ProyectoXperto
             Hide.FlatStyle = FlatStyle.Flat;
             Hide.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             Hide.ForeColor = Color.White;
-            Hide.Location = new Point(0, 687);
+            Hide.Location = new Point(0, 819);
             Hide.Name = "Hide";
             Hide.Size = new Size(240, 42);
             Hide.TabIndex = 2;
@@ -263,7 +280,7 @@ namespace ProyectoXperto
             // 
             ImageMain.Anchor = AnchorStyles.None;
             ImageMain.Image = ResourcesXperto.Logo;
-            ImageMain.Location = new Point(349, 177);
+            ImageMain.Location = new Point(466, 243);
             ImageMain.MaximumSize = new Size(466, 366);
             ImageMain.Name = "ImageMain";
             ImageMain.Size = new Size(466, 366);
@@ -283,7 +300,7 @@ namespace ProyectoXperto
             CompletePanel.Dock = DockStyle.Fill;
             CompletePanel.Location = new Point(240, 0);
             CompletePanel.Name = "CompletePanel";
-            CompletePanel.Size = new Size(1110, 729);
+            CompletePanel.Size = new Size(1344, 861);
             CompletePanel.TabIndex = 2;
             // 
             // Primarypanel
@@ -293,35 +310,17 @@ namespace ProyectoXperto
             Primarypanel.Dock = DockStyle.Fill;
             Primarypanel.Location = new Point(0, 58);
             Primarypanel.Name = "Primarypanel";
-            Primarypanel.Size = new Size(1110, 671);
+            Primarypanel.Size = new Size(1344, 803);
             Primarypanel.TabIndex = 1;
-            // 
-            // button1
-            // 
-            button1.BackColor = Color.Silver;
-            button1.Cursor = Cursors.Hand;
-            button1.Dock = DockStyle.Top;
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatAppearance.MouseOverBackColor = Color.Gray;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button1.ForeColor = Color.Black;
-            button1.Location = new Point(0, 58);
-            button1.Name = "button1";
-            button1.Size = new Size(240, 58);
-            button1.TabIndex = 2;
-            button1.Text = "Roles";
-            button1.UseVisualStyleBackColor = false;
             // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1350, 729);
+            ClientSize = new Size(1584, 861);
             Controls.Add(CompletePanel);
             Controls.Add(Leftpanel);
-            Icon = (Icon)resources.GetObject("$this.Icon");
-            MinimumSize = new Size(1366, 768);
+            MinimumSize = new Size(1600, 900);
             Name = "MainForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "PedidoXperto";
@@ -345,17 +344,17 @@ namespace ProyectoXperto
         private PictureBox ImageMain;
         private Button Btnpedido;
         private Panel SubpanelMenuPedido;
-        private Button BtnValidarPedido;
-        private Button BtnNuevoPedido;
         private Button Hide;
         private System.Windows.Forms.Timer collapseTimer;
         private Button BtnAdministrador;
         private Panel SubPanelMenuAdmin;
-        private Button BtnUsuarios;
         public Label LbUsuario;
         public Label LogOut;
         private Panel CompletePanel;
         private Panel Primarypanel;
-        private Button button1;
+        public Button BtnValidarPedido;
+        public Button BtnNuevoPedido;
+        public Button BtnUsuarios;
+        public Button BtnRoles;
     }
 }

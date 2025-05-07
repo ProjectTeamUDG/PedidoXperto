@@ -69,7 +69,6 @@ namespace PedidoXperto.Logic
             // Devuelve el primer valor o null si no existe
             return rows.FirstOrDefault();
         }
-
         /// <summary>
         /// Obtiene el descuento de un articulo
         /// </summary>
@@ -122,6 +121,7 @@ namespace PedidoXperto.Logic
                             }
                         }
                     }
+                    else if (response.StatusCode == System.Net.HttpStatusCode.NotFound) return null;
                     else
                     {
                         MessageBox.Show("Error al obtener recomendaciones: " + response.ReasonPhrase);

@@ -19,6 +19,7 @@ namespace PedidoXperto.ChildClases
         public string Name { get; set; }
         public decimal Contenido { get; set; }
         public string filepath { get; set; }
+        public bool editandoclave { get; set; }
         public string Vendedor { get; set; }
         public string FolioId { get; set; }
         public string status { get; set; }
@@ -141,5 +142,11 @@ namespace PedidoXperto.ChildClases
         public string UsuarioName { get; set; }
         public string Password { get; set; }
         public string Rol { get; set; }
+    }
+    public class AdminRoles
+    {
+        public int Id { get; set; }  // LiteDB genera el ID automáticamente si no se establece
+        public string RolNombre { get; set; }
+        public List<string> Derechos { get; set; }
     }
 }

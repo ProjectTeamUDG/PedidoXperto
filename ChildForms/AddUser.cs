@@ -133,5 +133,11 @@ namespace PedidoXperto.ChildForms
                 Enter.Focus();
             }
         }
+
+        private void label3_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace PedidoXperto.ChildForms
 {
-    partial class Existencias
+    partial class AddRol
     {
         /// <summary>
         /// Required designer variable.
@@ -28,17 +28,40 @@
         /// </summary>
         private void InitializeComponent()
         {
+            CheckList = new CheckedListBox();
+            Txt_Rol = new TextBox();
             panelTop = new Panel();
             label3 = new Label();
             Exit = new Button();
-            ExistenciaAlmacen = new Label();
             Enter = new Button();
             label2 = new Label();
-            label1 = new Label();
-            ExistenciaTienda = new Label();
-            Descripcion = new Label();
             panelTop.SuspendLayout();
             SuspendLayout();
+            // 
+            // CheckList
+            // 
+            CheckList.BackColor = Color.FromArgb(60, 60, 60);
+            CheckList.BorderStyle = BorderStyle.None;
+            CheckList.CheckOnClick = true;
+            CheckList.Cursor = Cursors.Hand;
+            CheckList.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            CheckList.ForeColor = Color.White;
+            CheckList.FormattingEnabled = true;
+            CheckList.Items.AddRange(new object[] { "Crear Pedido", "Validar Pedido", "Administrador de Usuarios", "Administrador de Roles" });
+            CheckList.Location = new Point(168, 165);
+            CheckList.Name = "CheckList";
+            CheckList.Size = new Size(295, 88);
+            CheckList.TabIndex = 21;
+            // 
+            // Txt_Rol
+            // 
+            Txt_Rol.CharacterCasing = CharacterCasing.Upper;
+            Txt_Rol.Font = new Font("Century Gothic", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Txt_Rol.Location = new Point(168, 112);
+            Txt_Rol.Name = "Txt_Rol";
+            Txt_Rol.Size = new Size(295, 26);
+            Txt_Rol.TabIndex = 18;
+            Txt_Rol.TextAlign = HorizontalAlignment.Center;
             // 
             // panelTop
             // 
@@ -48,20 +71,20 @@
             panelTop.Dock = DockStyle.Top;
             panelTop.Location = new Point(0, 0);
             panelTop.Name = "panelTop";
-            panelTop.Size = new Size(606, 88);
-            panelTop.TabIndex = 15;
+            panelTop.Size = new Size(606, 63);
+            panelTop.TabIndex = 20;
             panelTop.MouseDown += panelTop_MouseDown;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Century Gothic", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label3.Font = new Font("Century Gothic", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.White;
-            label3.Location = new Point(250, 5);
+            label3.Location = new Point(233, 9);
             label3.Name = "label3";
-            label3.Size = new Size(113, 22);
+            label3.Size = new Size(160, 24);
             label3.TabIndex = 0;
-            label3.Text = "EXISTENCIA";
+            label3.Text = "AGREGAR ROL";
             label3.MouseDown += label3_MouseDown;
             // 
             // Exit
@@ -70,6 +93,8 @@
             Exit.BackColor = SystemColors.ActiveBorder;
             Exit.Cursor = Cursors.Hand;
             Exit.FlatAppearance.BorderSize = 0;
+            Exit.FlatAppearance.MouseDownBackColor = Color.Gray;
+            Exit.FlatAppearance.MouseOverBackColor = Color.Gray;
             Exit.FlatStyle = FlatStyle.Flat;
             Exit.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             Exit.ForeColor = Color.Black;
@@ -81,113 +106,62 @@
             Exit.UseVisualStyleBackColor = false;
             Exit.Click += Exit_Click;
             // 
-            // ExistenciaAlmacen
-            // 
-            ExistenciaAlmacen.Anchor = AnchorStyles.None;
-            ExistenciaAlmacen.Cursor = Cursors.Hand;
-            ExistenciaAlmacen.FlatStyle = FlatStyle.Flat;
-            ExistenciaAlmacen.Font = new Font("Century Gothic", 15.75F, FontStyle.Bold);
-            ExistenciaAlmacen.ForeColor = Color.White;
-            ExistenciaAlmacen.Location = new Point(345, 132);
-            ExistenciaAlmacen.Name = "ExistenciaAlmacen";
-            ExistenciaAlmacen.Size = new Size(99, 31);
-            ExistenciaAlmacen.TabIndex = 14;
-            ExistenciaAlmacen.Text = "0";
-            // 
             // Enter
             // 
             Enter.Anchor = AnchorStyles.Top;
             Enter.BackColor = SystemColors.ActiveBorder;
             Enter.Cursor = Cursors.Hand;
             Enter.FlatAppearance.BorderSize = 0;
+            Enter.FlatAppearance.MouseDownBackColor = Color.Gray;
+            Enter.FlatAppearance.MouseOverBackColor = Color.Gray;
             Enter.FlatStyle = FlatStyle.Flat;
             Enter.ForeColor = Color.Black;
-            Enter.Location = new Point(222, 277);
+            Enter.Location = new Point(233, 273);
             Enter.Name = "Enter";
-            Enter.Size = new Size(141, 38);
-            Enter.TabIndex = 13;
-            Enter.Text = "Aceptar";
+            Enter.Size = new Size(141, 42);
+            Enter.TabIndex = 19;
+            Enter.Text = "Agregar";
             Enter.UseVisualStyleBackColor = false;
             Enter.Click += Enter_Click;
             // 
             // label2
             // 
-            label2.Anchor = AnchorStyles.None;
-            label2.Font = new Font("Century Gothic", 15.75F, FontStyle.Bold);
+            label2.AutoSize = true;
             label2.ForeColor = Color.White;
-            label2.Location = new Point(180, 132);
+            label2.Location = new Point(111, 119);
             label2.Name = "label2";
-            label2.Size = new Size(116, 31);
-            label2.TabIndex = 9;
-            label2.Text = "ALMACEN";
+            label2.Size = new Size(24, 15);
+            label2.TabIndex = 17;
+            label2.Text = "Rol";
             // 
-            // label1
-            // 
-            label1.Anchor = AnchorStyles.None;
-            label1.Font = new Font("Century Gothic", 15.75F, FontStyle.Bold);
-            label1.ForeColor = Color.White;
-            label1.Location = new Point(207, 174);
-            label1.Name = "label1";
-            label1.Size = new Size(89, 31);
-            label1.TabIndex = 10;
-            label1.Text = "TIENDA";
-            // 
-            // ExistenciaTienda
-            // 
-            ExistenciaTienda.Anchor = AnchorStyles.None;
-            ExistenciaTienda.FlatStyle = FlatStyle.Flat;
-            ExistenciaTienda.Font = new Font("Century Gothic", 15.75F, FontStyle.Bold);
-            ExistenciaTienda.ForeColor = Color.White;
-            ExistenciaTienda.Location = new Point(345, 174);
-            ExistenciaTienda.Name = "ExistenciaTienda";
-            ExistenciaTienda.Size = new Size(99, 25);
-            ExistenciaTienda.TabIndex = 16;
-            ExistenciaTienda.Text = "0";
-            // 
-            // Descripcion
-            // 
-            Descripcion.Anchor = AnchorStyles.None;
-            Descripcion.Font = new Font("Century Gothic", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            Descripcion.ForeColor = Color.White;
-            Descripcion.Location = new Point(12, 33);
-            Descripcion.Name = "Descripcion";
-            Descripcion.Size = new Size(582, 83);
-            Descripcion.TabIndex = 17;
-            Descripcion.TextAlign = ContentAlignment.MiddleCenter;
-            Descripcion.MouseDown += Descripcion_MouseDown;
-            // 
-            // Existencias
+            // AddRol
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(60, 60, 60);
             ClientSize = new Size(606, 338);
-            Controls.Add(Descripcion);
-            Controls.Add(ExistenciaTienda);
+            Controls.Add(CheckList);
+            Controls.Add(Txt_Rol);
             Controls.Add(panelTop);
-            Controls.Add(ExistenciaAlmacen);
             Controls.Add(Enter);
             Controls.Add(label2);
-            Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "Existencias";
-            StartPosition = FormStartPosition.CenterScreen;
-            Text = "Existencias";
+            Name = "AddRol";
+            Text = "AddRol";
             panelTop.ResumeLayout(false);
             panelTop.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
+        public CheckedListBox CheckList;
+        public TextBox Txt_Rol;
         private Panel panelTop;
         private Label label3;
         private Button Exit;
         private Button Enter;
         private Label label2;
-        private Label label1;
-        public Label ExistenciaAlmacen;
-        public Label ExistenciaTienda;
-        public Label Descripcion;
     }
 }

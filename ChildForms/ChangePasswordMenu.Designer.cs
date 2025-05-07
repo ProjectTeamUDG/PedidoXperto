@@ -69,8 +69,9 @@
             panelTop.Dock = DockStyle.Top;
             panelTop.Location = new Point(0, 0);
             panelTop.Name = "panelTop";
-            panelTop.Size = new Size(606, 30);
+            panelTop.Size = new Size(606, 64);
             panelTop.TabIndex = 0;
+            panelTop.MouseDown += panelTop_MouseDown;
             // 
             // label3
             // 
@@ -82,6 +83,7 @@
             label3.Size = new Size(253, 22);
             label3.TabIndex = 0;
             label3.Text = "CAMBIO DE CONTRASEÑA";
+            label3.MouseDown += label3_MouseDown;
             // 
             // Exit
             // 

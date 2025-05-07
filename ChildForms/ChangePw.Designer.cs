@@ -49,6 +49,7 @@
             panelTop.Name = "panelTop";
             panelTop.Size = new Size(606, 78);
             panelTop.TabIndex = 15;
+            panelTop.MouseDown += panelTop_MouseDown;
             // 
             // Lb_Title
             // 
@@ -62,6 +63,7 @@
             Lb_Title.TabIndex = 0;
             Lb_Title.Text = "CAMBIAR CONTRASENA";
             Lb_Title.TextAlign = ContentAlignment.TopCenter;
+            Lb_Title.MouseDown += Lb_Title_MouseDown;
             // 
             // Exit
             // 

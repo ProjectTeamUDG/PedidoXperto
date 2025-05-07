@@ -322,5 +322,13 @@ namespace ProyectoXperto
         {
             BtnAdministrador.ForeColor = Color.White;
         }
+
+        private void BtnRoles_Click(object sender, EventArgs e)
+        {
+            openChild(new FormAdminRoles());
+            HideSubmenu();
+            Ocultar();
+        }
+
     }
 }

@@ -40,8 +40,7 @@
             TxtCodigo = new TextBox();
             Cb_Surtidor = new ComboBox();
             panel1 = new Panel();
-            Cargar = new Button();
-            Cancelado = new TextBox();
+            Save = new Button();
             Lb_Incompletos = new Label();
             Lb_renglones = new Label();
             label5 = new Label();
@@ -95,7 +94,7 @@
             label1.FlatStyle = FlatStyle.Flat;
             label1.Font = new Font("Century Gothic", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.Black;
-            label1.Location = new Point(10, 75);
+            label1.Location = new Point(10, 93);
             label1.Name = "label1";
             label1.Size = new Size(144, 28);
             label1.TabIndex = 0;
@@ -106,11 +105,11 @@
             // 
             label2.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             label2.FlatStyle = FlatStyle.Flat;
-            label2.Font = new Font("Century Gothic", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Font = new Font("Century Gothic", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.Black;
-            label2.Location = new Point(12, 150);
+            label2.Location = new Point(10, 153);
             label2.Name = "label2";
-            label2.Size = new Size(201, 28);
+            label2.Size = new Size(259, 28);
             label2.TabIndex = 0;
             label2.Text = "CÓDIGO DE BARRAS:";
             label2.TextAlign = ContentAlignment.MiddleCenter;
@@ -120,7 +119,7 @@
             label3.FlatStyle = FlatStyle.Flat;
             label3.Font = new Font("Century Gothic", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.Black;
-            label3.Location = new Point(27, 38);
+            label3.Location = new Point(16, 22);
             label3.Name = "label3";
             label3.Size = new Size(150, 28);
             label3.TabIndex = 0;
@@ -131,7 +130,7 @@
             // 
             TxtPedido.CharacterCasing = CharacterCasing.Upper;
             TxtPedido.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            TxtPedido.Location = new Point(172, 38);
+            TxtPedido.Location = new Point(172, 26);
             TxtPedido.Name = "TxtPedido";
             TxtPedido.Size = new Size(204, 27);
             TxtPedido.TabIndex = 1;
@@ -145,9 +144,9 @@
             BtnPedido.FlatAppearance.MouseOverBackColor = Color.Gray;
             BtnPedido.FlatStyle = FlatStyle.Flat;
             BtnPedido.ForeColor = Color.White;
-            BtnPedido.Location = new Point(395, 37);
+            BtnPedido.Location = new Point(408, 23);
             BtnPedido.Name = "BtnPedido";
-            BtnPedido.Size = new Size(125, 28);
+            BtnPedido.Size = new Size(129, 31);
             BtnPedido.TabIndex = 2;
             BtnPedido.Text = "Validar";
             BtnPedido.UseVisualStyleBackColor = false;
@@ -163,9 +162,9 @@
             BtnCodigo.FlatAppearance.MouseOverBackColor = Color.Gray;
             BtnCodigo.FlatStyle = FlatStyle.Flat;
             BtnCodigo.ForeColor = Color.White;
-            BtnCodigo.Location = new Point(545, 150);
+            BtnCodigo.Location = new Point(592, 148);
             BtnCodigo.Name = "BtnCodigo";
-            BtnCodigo.Size = new Size(125, 28);
+            BtnCodigo.Size = new Size(125, 36);
             BtnCodigo.TabIndex = 5;
             BtnCodigo.Text = "Agregar";
             BtnCodigo.UseVisualStyleBackColor = false;
@@ -174,7 +173,7 @@
             // TxtCodigo
             // 
             TxtCodigo.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            TxtCodigo.Location = new Point(230, 151);
+            TxtCodigo.Location = new Point(277, 153);
             TxtCodigo.Name = "TxtCodigo";
             TxtCodigo.Size = new Size(290, 27);
             TxtCodigo.TabIndex = 4;
@@ -184,7 +183,7 @@
             // 
             Cb_Surtidor.Font = new Font("Century Gothic", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             Cb_Surtidor.FormattingEnabled = true;
-            Cb_Surtidor.Location = new Point(172, 75);
+            Cb_Surtidor.Location = new Point(172, 93);
             Cb_Surtidor.Name = "Cb_Surtidor";
             Cb_Surtidor.Size = new Size(348, 27);
             Cb_Surtidor.TabIndex = 3;
@@ -194,8 +193,7 @@
             // panel1
             // 
             panel1.BackColor = Color.Beige;
-            panel1.Controls.Add(Cargar);
-            panel1.Controls.Add(Cancelado);
+            panel1.Controls.Add(Save);
             panel1.Controls.Add(Lb_Incompletos);
             panel1.Controls.Add(Lb_renglones);
             panel1.Controls.Add(label5);
@@ -216,29 +214,22 @@
             panel1.Size = new Size(1383, 195);
             panel1.TabIndex = 10;
             // 
-            // Cargar
+            // Save
             // 
-            Cargar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            Cargar.BackColor = Color.FromArgb(60, 60, 60);
-            Cargar.Cursor = Cursors.Hand;
-            Cargar.FlatAppearance.BorderSize = 0;
-            Cargar.FlatAppearance.MouseOverBackColor = Color.Gray;
-            Cargar.FlatStyle = FlatStyle.Flat;
-            Cargar.ForeColor = Color.White;
-            Cargar.Location = new Point(1242, 77);
-            Cargar.Name = "Cargar";
-            Cargar.Size = new Size(143, 28);
-            Cargar.TabIndex = 0;
-            Cargar.Text = "Cargar";
-            Cargar.UseVisualStyleBackColor = false;
-            // 
-            // Cancelado
-            // 
-            Cancelado.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            Cancelado.Location = new Point(1090, 77);
-            Cancelado.Name = "Cancelado";
-            Cancelado.Size = new Size(134, 27);
-            Cancelado.TabIndex = 0;
+            Save.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            Save.BackColor = Color.FromArgb(60, 60, 60);
+            Save.Cursor = Cursors.Hand;
+            Save.FlatAppearance.BorderSize = 0;
+            Save.FlatAppearance.MouseOverBackColor = Color.Gray;
+            Save.FlatStyle = FlatStyle.Flat;
+            Save.ForeColor = Color.White;
+            Save.Location = new Point(1242, 67);
+            Save.Name = "Save";
+            Save.Size = new Size(141, 54);
+            Save.TabIndex = 6;
+            Save.Text = "Guardar";
+            Save.UseVisualStyleBackColor = false;
+            Save.Click += Save_Click;
             // 
             // Lb_Incompletos
             // 
@@ -329,8 +320,10 @@
             Tabla.ReadOnly = true;
             Tabla.RowHeadersVisible = false;
             Tabla.RowHeadersWidth = 50;
+            Tabla.RowTemplate.Height = 40;
             Tabla.Size = new Size(1383, 627);
             Tabla.TabIndex = 0;
+            Tabla.CellMouseDown += Tabla_CellMouseDown;
             Tabla.KeyDown += Tabla_KeyDown;
             // 
             // Column1
@@ -400,6 +393,8 @@
             Margin = new Padding(4);
             Name = "FormValidarPedido";
             Text = "FormValidarPedido";
+            Load += FormValidarPedido_Load;
+            KeyDown += FormValidarPedido_KeyDown;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel2.ResumeLayout(false);
@@ -426,8 +421,6 @@
         private Label Lb_renglones;
         private Label label5;
         private Label label4;
-        private Button Cargar;
-        private TextBox Cancelado;
         private DataGridViewTextBoxColumn Column1;
         private DataGridViewTextBoxColumn Column2;
         private DataGridViewTextBoxColumn Column3;
@@ -435,5 +428,6 @@
         private DataGridViewTextBoxColumn Column5;
         private DataGridViewTextBoxColumn Column6;
         private DataGridViewTextBoxColumn Column7;
+        private Button Save;
     }
 }

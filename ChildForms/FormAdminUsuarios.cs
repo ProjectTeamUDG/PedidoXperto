@@ -28,7 +28,6 @@ namespace PedidoXperto.ChildForms
                 // Obtener todos los usuarios de la base de datos
                 var listaUsuarios = usuarios.FindAll();
                 // Crear un array o lista para almacenar los nombres de usuario
-                List<string> nombresArray = new List<string>();
                 // Llenar el array con los nombres de usuario
                 foreach (var usuario in listaUsuarios)
                 {
@@ -141,7 +140,7 @@ namespace PedidoXperto.ChildForms
 
         private void BtnEditRol_Click(object sender, EventArgs e)
         {
-            ChangeRol editarRol = new ChangeRol(TablaUsuarios.CurrentRow.Cells[1].Value.ToString());
+            ChangeUserRol editarRol = new ChangeUserRol(TablaUsuarios.CurrentRow.Cells[1].Value.ToString());
             editarRol.ShowDialog();
             TablaUsuarios.Rows.Clear();
             CargarUsers();
@@ -161,6 +160,11 @@ namespace PedidoXperto.ChildForms
             changePW.ShowDialog();
             TablaUsuarios.Rows.Clear();
             CargarUsers();
+        }
+
+        private void SubpanelMenu_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

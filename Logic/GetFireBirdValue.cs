@@ -40,7 +40,7 @@ namespace PedidoXperto.Logic
         }
         public string[] BuscarDatosArticulos(string Clave_articulo)
         {
-            string articulo_id = "", nombre = "", clave_principal = "", preciolista = "";
+            string articulo_id = "", nombre = "", clave_principal = "", preciolista = "", impuestoid = "", impuesto ="0";
 
             FbConnection con = new FbConnection(GlobalSettings.Instance.StringConnection);
             try
@@ -69,13 +69,15 @@ namespace PedidoXperto.Logic
                 {
                     return null;
                 }
+                impuestoid = GetValue("SELECT IMPUESTO_ID FROM IMPUESTOS_ARTICULOS WHERE ARTICULO_ID = '" + articulo_id + "';");
+                impuesto = GetValue("SELECT PCTJE_IMPUESTO FROM IMPUESTOS WHERE IMPUESTO_ID = '" + impuestoid + "';");
                 string queryb = "SELECT NOMBRE FROM ARTICULOS WHERE ARTICULO_ID = '" + articulo_id + "'";
                 FbCommand commandb = new FbCommand(queryb, con);
                 FbDataReader readerb = commandb.ExecuteReader();
                 if (readerb.Read())
                 {
                     nombre = readerb.GetString(0);
-                    return new string[] { clave_principal, nombre, preciolista };
+                    return new string[] { clave_principal, nombre, preciolista, impuesto };
                 }
                 else
                 {
@@ -92,6 +94,14 @@ namespace PedidoXperto.Logic
             {
                 con.Close();
             }
+        }
+        public string[] GetImpuestoArticulo(string Clave_articulo)
+        {
+           
+                string articulo_id = GetValue("SELECT ARTICULO_ID FROM CLAVES_ARTICULOS WHERE CLAVE_ARTICULO = '" + Clave_articulo + "';");
+                string impuestoid = GetValue("SELECT IMPUESTO_ID FROM IMPUESTOS_ARTICULOS WHERE ARTICULO_ID = '" + articulo_id + "';");
+                string impuesto = GetValue("SELECT PCTJE_IMPUESTO FROM IMPUESTOS WHERE IMPUESTO_ID = '" + impuestoid + "';");
+                return new string[] {impuesto };
         }
     }
 }

@@ -8,12 +8,13 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PedidoXperto.ChildClases;
 
 namespace PedidoXperto.ChildForms
 {
-    public partial class Existencias : Form
+    public partial class MensajeCustom : Form
     {
-        public Existencias()
+        public MensajeCustom()
         {
             InitializeComponent();
         }
@@ -22,13 +23,6 @@ namespace PedidoXperto.ChildForms
         {
             this.Close();
         }
-
-        private void Enter_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
@@ -38,17 +32,29 @@ namespace PedidoXperto.ChildForms
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
-
+        public void ejecutar()
+        {
+            if (GlobalSettings.Instance.aceptado == true)
+            {
+                this.Close();
+            }
+        }
         private void label3_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
-        private void Descripcion_MouseDown(object sender, MouseEventArgs e)
+        private void Back_Click(object sender, EventArgs e)
         {
-            ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0);
+            this.Close();
+        }
+
+        private void Solicitar_Click(object sender, EventArgs e)
+        {
+            ControlAcceso control = new ControlAcceso();
+            control.EnviarVariableEvent3 += new ControlAcceso.EnviarVariableDelegate3(ejecutar);
+            control.ShowDialog();
         }
     }
 }

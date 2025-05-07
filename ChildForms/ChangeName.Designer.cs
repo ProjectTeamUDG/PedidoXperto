@@ -57,8 +57,9 @@
             panelTop.Dock = DockStyle.Top;
             panelTop.Location = new Point(0, 0);
             panelTop.Name = "panelTop";
-            panelTop.Size = new Size(606, 30);
+            panelTop.Size = new Size(606, 61);
             panelTop.TabIndex = 0;
+            panelTop.MouseDown += panelTop_MouseDown;
             // 
             // label3
             // 
@@ -70,6 +71,7 @@
             label3.Size = new Size(205, 22);
             label3.TabIndex = 0;
             label3.Text = "CAMBIO DE NOMBRE";
+            label3.MouseDown += label3_MouseDown;
             // 
             // Exit
             // 
@@ -113,6 +115,7 @@
             label2.Size = new Size(47, 15);
             label2.TabIndex = 17;
             label2.Text = "Usuario";
+            label2.Click += label2_Click;
             // 
             // label1
             // 

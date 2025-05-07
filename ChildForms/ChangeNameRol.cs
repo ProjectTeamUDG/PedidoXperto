@@ -13,31 +13,49 @@ using PedidoXperto.ChildClases;
 
 namespace PedidoXperto.ChildForms
 {
-    public partial class ChangeName : Form
+    public partial class ChangeNameRol : Form
     {
-        public ChangeName(string Usuario)
+        public ChangeNameRol(string Name)
         {
             InitializeComponent();
-            Txt_Usuario.Text = Usuario;
+            Txt_Rol.Text = Name;
         }
 
         private void Enter_Click(object sender, EventArgs e)
         {
-            if (Txt_Usuario2.Text != string.Empty)
+            if (Txt_Rol2.Text != string.Empty)
             {
                 using (var db = new LiteDatabase("C:\\ConfigDB\\USUARIOS_TRASPASOS.db"))
                 {
                     var usuarios = db.GetCollection<AdminUsuario>("USUARIOS");
+                    var usuariosConRol = usuarios.Find(u => u.Rol == Txt_Rol.Text);
+
+                    int contador = 0;
+
+                    foreach (var usuario in usuariosConRol)
+                    {
+                        usuario.Rol = Txt_Rol2.Text;
+                        usuarios.Update(usuario);
+                        contador++;
+                    }
+
+                    if (contador > 0)
+                    {
+                        MessageBox.Show($"Rol actualizado en {contador} usuario(s).");
+                    }
+                }
+                using (var db = new LiteDatabase("C:\\ConfigDB\\USUARIOS_TRASPASOS.db"))
+                {
+                    var usuarios = db.GetCollection<AdminRoles>("ROLES");
 
                     // Buscar el usuario en la base de datos por su ID
-                    var usuarioAEditar = usuarios.FindOne(u => u.UsuarioName == Txt_Usuario.Text);
+                    var usuarioAEditar = usuarios.FindOne(u => u.RolNombre == Txt_Rol.Text);
 
                     if (usuarioAEditar != null)
                     {
                         // Eliminar el usuario de la base de datos
-                        usuarioAEditar.UsuarioName = Txt_Usuario2.Text; // Cambiar el rol
+                        usuarioAEditar.RolNombre = Txt_Rol2.Text; // Cambiar el rol
                         usuarios.Update(usuarioAEditar);
-                        MessageBox.Show("Nombre cambiado exitosamente.");
                         db.Dispose();
                         this.Close();
                     }
@@ -58,28 +76,11 @@ namespace PedidoXperto.ChildForms
             this.Close();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Txt_Usuario2_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                Enter.Focus();
-            }
-        }
 
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void panelTop_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();

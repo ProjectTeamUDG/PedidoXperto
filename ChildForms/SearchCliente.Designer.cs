@@ -1,6 +1,6 @@
 ﻿namespace PedidoXperto.ChildForms
 {
-    partial class SearchMenu
+    partial class SearchCliente
     {
         /// <summary>
         /// Required designer variable.
@@ -28,33 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            Txt_Nombre = new TextBox();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             panelTop = new Panel();
             label3 = new Label();
             Exit = new Button();
+            TxtNombre = new TextBox();
             Buscar = new Button();
             Concepto = new Label();
-            Tabla = new DataGridView();
+            panel1 = new Panel();
+            TablaClientes = new DataGridView();
             Column1 = new DataGridViewTextBoxColumn();
             Column2 = new DataGridViewTextBoxColumn();
             Column3 = new DataGridViewTextBoxColumn();
-            Column4 = new DataGridViewTextBoxColumn();
-            panel1 = new Panel();
             panelTop.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)Tabla).BeginInit();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)TablaClientes).BeginInit();
             SuspendLayout();
-            // 
-            // Txt_Nombre
-            // 
-            Txt_Nombre.CharacterCasing = CharacterCasing.Upper;
-            Txt_Nombre.Font = new Font("Century Gothic", 9.75F);
-            Txt_Nombre.Location = new Point(128, 54);
-            Txt_Nombre.Name = "Txt_Nombre";
-            Txt_Nombre.Size = new Size(365, 23);
-            Txt_Nombre.TabIndex = 2;
-            Txt_Nombre.KeyDown += Txt_Nombre_KeyDown;
             // 
             // panelTop
             // 
@@ -66,7 +55,7 @@
             panelTop.Location = new Point(0, 0);
             panelTop.Name = "panelTop";
             panelTop.Size = new Size(676, 44);
-            panelTop.TabIndex = 15;
+            panelTop.TabIndex = 16;
             panelTop.MouseDown += panelTop_MouseDown;
             // 
             // label3
@@ -79,7 +68,6 @@
             label3.Size = new Size(182, 22);
             label3.TabIndex = 0;
             label3.Text = "BUSCAR ARTICULO";
-            label3.MouseDown += label3_MouseDown;
             // 
             // Exit
             // 
@@ -98,6 +86,16 @@
             Exit.UseVisualStyleBackColor = false;
             Exit.Click += Exit_Click;
             // 
+            // TxtNombre
+            // 
+            TxtNombre.CharacterCasing = CharacterCasing.Upper;
+            TxtNombre.Font = new Font("Century Gothic", 12F);
+            TxtNombre.Location = new Point(141, 21);
+            TxtNombre.Name = "TxtNombre";
+            TxtNombre.Size = new Size(365, 27);
+            TxtNombre.TabIndex = 18;
+            TxtNombre.KeyDown += TxtNombre_KeyDown;
+            // 
             // Buscar
             // 
             Buscar.Anchor = AnchorStyles.Top;
@@ -105,12 +103,12 @@
             Buscar.Cursor = Cursors.Hand;
             Buscar.FlatAppearance.BorderSize = 0;
             Buscar.FlatStyle = FlatStyle.Flat;
-            Buscar.Font = new Font("Century Gothic", 9.75F);
+            Buscar.Font = new Font("Century Gothic", 12F);
             Buscar.ForeColor = Color.Black;
-            Buscar.Location = new Point(528, 50);
+            Buscar.Location = new Point(542, 17);
             Buscar.Name = "Buscar";
             Buscar.Size = new Size(87, 28);
-            Buscar.TabIndex = 3;
+            Buscar.TabIndex = 19;
             Buscar.Text = "Buscar";
             Buscar.UseVisualStyleBackColor = false;
             Buscar.Click += Buscar_Click;
@@ -119,47 +117,59 @@
             // 
             Concepto.AutoSize = true;
             Concepto.BackColor = Color.FromArgb(60, 60, 60);
-            Concepto.Font = new Font("Century Gothic", 9.75F);
+            Concepto.Font = new Font("Century Gothic", 12F);
             Concepto.ForeColor = Color.White;
-            Concepto.Location = new Point(45, 57);
+            Concepto.Location = new Point(47, 21);
             Concepto.Name = "Concepto";
-            Concepto.Size = new Size(61, 17);
-            Concepto.TabIndex = 0;
+            Concepto.Size = new Size(73, 21);
+            Concepto.TabIndex = 17;
             Concepto.Text = "Nombre";
             // 
-            // Tabla
+            // panel1
             // 
-            Tabla.AllowUserToAddRows = false;
-            Tabla.AllowUserToDeleteRows = false;
-            Tabla.BackgroundColor = Color.FromArgb(60, 60, 60);
-            Tabla.BorderStyle = BorderStyle.None;
-            Tabla.CellBorderStyle = DataGridViewCellBorderStyle.Raised;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.Gray;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle2.ForeColor = Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = Color.Gray;
-            dataGridViewCellStyle2.SelectionForeColor = Color.White;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            Tabla.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            Tabla.ColumnHeadersHeight = 30;
-            Tabla.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            Tabla.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4 });
-            Tabla.EnableHeadersVisualStyles = false;
-            Tabla.Location = new Point(0, 0);
-            Tabla.MultiSelect = false;
-            Tabla.Name = "Tabla";
-            Tabla.ReadOnly = true;
-            Tabla.RowHeadersVisible = false;
-            Tabla.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            Tabla.Size = new Size(676, 222);
-            Tabla.TabIndex = 1;
-            Tabla.CellDoubleClick += Tabla_CellDoubleClick;
-            Tabla.KeyDown += Tabla_KeyDown;
+            panel1.Controls.Add(TxtNombre);
+            panel1.Controls.Add(Buscar);
+            panel1.Controls.Add(Concepto);
+            panel1.Dock = DockStyle.Top;
+            panel1.Location = new Point(0, 44);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(676, 77);
+            panel1.TabIndex = 20;
+            // 
+            // TablaClientes
+            // 
+            TablaClientes.AllowUserToAddRows = false;
+            TablaClientes.AllowUserToDeleteRows = false;
+            TablaClientes.BackgroundColor = Color.FromArgb(60, 60, 60);
+            TablaClientes.BorderStyle = BorderStyle.None;
+            TablaClientes.CellBorderStyle = DataGridViewCellBorderStyle.Raised;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.Gray;
+            dataGridViewCellStyle1.Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = Color.Gray;
+            dataGridViewCellStyle1.SelectionForeColor = Color.White;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            TablaClientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            TablaClientes.ColumnHeadersHeight = 30;
+            TablaClientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            TablaClientes.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3 });
+            TablaClientes.Dock = DockStyle.Fill;
+            TablaClientes.EnableHeadersVisualStyles = false;
+            TablaClientes.Location = new Point(0, 121);
+            TablaClientes.Margin = new Padding(4);
+            TablaClientes.MultiSelect = false;
+            TablaClientes.Name = "TablaClientes";
+            TablaClientes.ReadOnly = true;
+            TablaClientes.RowHeadersVisible = false;
+            TablaClientes.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            TablaClientes.Size = new Size(676, 213);
+            TablaClientes.TabIndex = 21;
+            TablaClientes.KeyDown += TablaClientes_KeyDown;
             // 
             // Column1
             // 
-            Column1.HeaderText = "Código";
+            Column1.HeaderText = "Clave";
             Column1.Name = "Column1";
             Column1.ReadOnly = true;
             Column1.Resizable = DataGridViewTriState.False;
@@ -176,61 +186,44 @@
             // 
             // Column3
             // 
-            Column3.HeaderText = "Precio Lista";
+            Column3.HeaderText = "Descuento";
             Column3.Name = "Column3";
             Column3.ReadOnly = true;
-            Column3.Resizable = DataGridViewTriState.False;
             // 
-            // Column4
+            // SearchCliente
             // 
-            Column4.HeaderText = "Existencia";
-            Column4.Name = "Column4";
-            Column4.ReadOnly = true;
-            // 
-            // panel1
-            // 
-            panel1.Controls.Add(Tabla);
-            panel1.Dock = DockStyle.Bottom;
-            panel1.Location = new Point(0, 112);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(676, 222);
-            panel1.TabIndex = 17;
-            // 
-            // SearchMenu
-            // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(60, 60, 60);
             ClientSize = new Size(676, 334);
+            Controls.Add(TablaClientes);
             Controls.Add(panel1);
-            Controls.Add(Txt_Nombre);
             Controls.Add(panelTop);
-            Controls.Add(Buscar);
-            Controls.Add(Concepto);
+            Font = new Font("Century Gothic", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             FormBorderStyle = FormBorderStyle.None;
-            Name = "SearchMenu";
+            Margin = new Padding(4);
+            Name = "SearchCliente";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "SearchMenu";
+            Text = "SearchCliente";
             panelTop.ResumeLayout(false);
             panelTop.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)Tabla).EndInit();
             panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)TablaClientes).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
         private Panel panelTop;
         private Label label3;
         private Button Exit;
-        private Button Buscar;
+        public TextBox TxtNombre;
         private Label Concepto;
         private Panel panel1;
-        public TextBox Txt_Nombre;
-        public DataGridView Tabla;
+        public DataGridView TablaClientes;
         private DataGridViewTextBoxColumn Column1;
         private DataGridViewTextBoxColumn Column2;
         private DataGridViewTextBoxColumn Column3;
-        private DataGridViewTextBoxColumn Column4;
+        public Button Buscar;
     }
 }

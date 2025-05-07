@@ -56,13 +56,13 @@
             // 
             // LbCodigo
             // 
-            LbCodigo.AutoSize = true;
+            LbCodigo.BackColor = Color.FromArgb(60, 60, 60);
             LbCodigo.Dock = DockStyle.Fill;
             LbCodigo.Font = new Font("Arial", 14.25F);
             LbCodigo.ForeColor = Color.White;
             LbCodigo.Location = new Point(0, 0);
             LbCodigo.Name = "LbCodigo";
-            LbCodigo.Size = new Size(43, 22);
+            LbCodigo.Size = new Size(915, 138);
             LbCodigo.TabIndex = 1;
             LbCodigo.Text = "222";
             LbCodigo.TextAlign = ContentAlignment.MiddleCenter;
@@ -78,13 +78,12 @@
             // 
             // Lb_Nota
             // 
-            Lb_Nota.AutoSize = true;
             Lb_Nota.Dock = DockStyle.Fill;
             Lb_Nota.Font = new Font("Arial", 14.25F);
             Lb_Nota.ForeColor = Color.White;
             Lb_Nota.Location = new Point(0, 0);
             Lb_Nota.Name = "Lb_Nota";
-            Lb_Nota.Size = new Size(43, 22);
+            Lb_Nota.Size = new Size(915, 131);
             Lb_Nota.TabIndex = 2;
             Lb_Nota.Text = "222";
             Lb_Nota.TextAlign = ContentAlignment.MiddleCenter;
@@ -180,7 +179,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(50, 50, 50);
+            BackColor = Color.FromArgb(60, 60, 60);
             ClientSize = new Size(915, 510);
             Controls.Add(LbRecibido);
             Controls.Add(label4);
@@ -194,11 +193,10 @@
             Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "Menu";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Menu";
             panel1.ResumeLayout(false);
-            panel1.PerformLayout();
             panel2.ResumeLayout(false);
-            panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)Cantidad).EndInit();
             ResumeLayout(false);
             PerformLayout();
